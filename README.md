@@ -1,7 +1,39 @@
-# Command line tool for performing Technical Verification Testing
+# Command line tool for performing web action follow by task defined in yml
 
 
-Supported [selectors](https://selenium-python.readthedocs.io/locating-elements.html) are :
+## Installation
+
+```sh
+python3 -m pip install webbot
+```
+
+## Example to open bing.com and search python:
+
+define tasks as following bing.yml file
+```yaml
+---
+name: search content in bing.com
+url: http://www.bing.com
+driver: chrome
+tasks:
+  - name: open the main page of bing.com
+    input:
+      - value: '//*[@id="sb_form_q"]'
+        text: 'python'
+    click:
+      - selector: xpath
+        value: '//*[@id="sb_form"]/label'
+```
+
+then call webbot:
+
+```sh
+webbot bing.yml
+```
+
+## Document
+
+### Supported [selectors](https://selenium-python.readthedocs.io/locating-elements.html) are :
 ```
 xpath
 css
@@ -14,7 +46,7 @@ css_selector
 partial_link_text
 ```
 
-## click
+### click
 
 click the element
 
@@ -35,7 +67,7 @@ click:
     - '<value of xpath3>'
 ```
 
-## input
+### input
 
 input text for element
 
@@ -55,7 +87,7 @@ input:
       text: 'text to be input'
 ```
 
-## switch_window
+### switch_window
 
 switch window
 

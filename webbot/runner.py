@@ -30,9 +30,9 @@ class Runner:
     def click(self, value, selector='xpath'):
         wait = WebDriverWait(self.driver, self.timeout, ignored_exceptions=(
             ElementClickInterceptedException))
-        selector = getattr(By, selector.upper())
-        element = wait.until(
-            EC.element_to_be_clickable((selector, value)))
+        # selector = getattr(By, selector.upper())
+        # element = wait.until(
+        #     EC.element_to_be_clickable((selector, value)))
         element = getattr(self.driver, f'find_element_by_{selector}')(value)
         wait.until(lambda x: element.click() or True)
 

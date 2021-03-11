@@ -72,7 +72,6 @@ class SwitchWindowAction(BaseAction):
         "optional": {}
     }
 
-
     def _parse_dict(self, args):
         args = super()._parse_dict(args)
         if not isinstance(args['index'], int) and not args['index'].isdigit():
